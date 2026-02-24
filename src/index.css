@@ -1,18 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Fredericka+the+Great&display=swap');
+/* Import fontawesome */
+@import url('https://use.fontawesome.com/releases/v6.1.1/css/all.css');
+
+
 
 :root {
-  --bg:        #0a0c10;
-  --surface:   #111318;
-  --surface2:  #181b22;
-  --border:    #23262f;
+  --bg:        	#B5BFC6;
+  --surface:   	#6E7F8D;
+  --surface2:  #ecedf0;
+  --surface3:   #212121;
+  --border:    hsla(197, 14%, 10%, 0.329);
   --accent:    #4fffb0;
   --accent2:   #3b82f6;
-  --danger:    #ff4f6d;
+  --danger:    #b90b28;
   --warn:      #f59e0b;
   --text:      #e8eaf0;
-  --muted:     #6b7280;
+  --text-dark: #212121;
+  --muted:     #e4e4e4;
   --radius:    10px;
-  --font-head: 'Syne', sans-serif;
+  --font-head: "Fredericka the Great", serif;
+;
   --font-mono: 'DM Mono', monospace;
 }
 
@@ -38,7 +45,8 @@ body {
 .sidebar {
   width: 240px;
   background: var(--surface);
-  border-right: 1px solid var(--border);
+  /* border-right: 1px solid var(--border); */
+  box-shadow: 5px 0 10px var(--border);
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -117,13 +125,13 @@ body {
 }
 
 .nav-link:hover {
-  background: var(--surface2);
+  background: var(--surface3);
   color: var(--text);
 }
 
 .nav-link.active {
-  background: rgba(79, 255, 176, 0.1);
-  color: var(--accent);
+  background: var(--bg);
+  color: var(--text-dark);
   border-left: 2px solid var(--accent);
   padding-left: 10px;
 }
@@ -143,10 +151,13 @@ body {
   padding: 10px 12px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
+  box-shadow: 5px 0 5px var(--border);
   background: none;
   color: var(--danger);
   font-family: var(--font-mono);
   font-size: 0.8rem;
+  font-weight: bolder;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.15s;
 }
@@ -170,15 +181,17 @@ body {
 }
 
 .page-header h2 {
-  font-family: var(--font-head);
   font-size: 1.8rem;
+  color: var(--text-dark);
+    font-family: var(--font-head);
+
   font-weight: 800;
   letter-spacing: -1px;
 }
 
 .page-header p {
   font-size: 0.78rem;
-  color: var(--muted);
+  color: var(--text-dark);
   margin-top: 4px;
 }
 
@@ -193,6 +206,8 @@ body {
 .stat-card {
   background: var(--surface);
   border: 1px solid var(--border);
+    box-shadow: 5px 5px 5px var(--border);
+
   border-radius: var(--radius);
   padding: 20px;
   position: relative;
@@ -204,18 +219,18 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: var(--accent-color, var(--accent));
+  
+  /* background: var(--accent-color, var(--accent)); */
 }
 
 .stat-card .label {
-  font-size: 0.65rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
 }
 
 .stat-card .value {
-  font-family: var(--font-head);
+  /* font-family: var(--font-head); */
   font-size: 2rem;
   font-weight: 800;
   margin-top: 8px;
@@ -226,6 +241,7 @@ body {
 .table-card {
   background: var(--surface);
   border: 1px solid var(--border);
+      box-shadow: 5px 5px 5px var(--border);
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -240,6 +256,7 @@ body {
 
 .table-card-header h3 {
   font-family: var(--font-head);
+  
   font-size: 1rem;
   font-weight: 700;
 }
@@ -256,7 +273,7 @@ th {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
-  background: var(--surface2);
+  background: var(--surface3);
   border-bottom: 1px solid var(--border);
 }
 
@@ -265,13 +282,20 @@ td {
   font-size: 0.82rem;
   border-bottom: 1px solid var(--border);
   color: var(--text);
+  
+}
+
+tr:hover{
+  color: var(--text-dark);
 }
 
 tr:last-child td { border-bottom: none; }
 
-tr:hover td { background: var(--surface2); }
+tr:hover td { background: var(--bg);}
 
-.mono { font-family: var(--font-mono); color: var(--muted); font-size: 0.75rem; }
+.mono { font-family: var(--font-mono);  font-size: 0.75rem; }
+
+
 
 /* Badges */
 .badge {
@@ -321,14 +345,14 @@ tr:hover td { background: var(--surface2); }
 
 .btn-ghost {
   background: var(--surface2);
-  color: var(--muted);
+  color: var(--text-dark);
   border: 1px solid var(--border);
 }
-.btn-ghost:hover { color: var(--text); }
+.btn-ghost:hover { color: var(--accent); }
 
 .btn-sm { padding: 6px 12px; font-size: 0.75rem; }
 
-/* Forms */
+/* Modals & Forms */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -381,7 +405,7 @@ tr:hover td { background: var(--surface2); }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 10px 14px;
-  color: var(--text);
+  color: var(--text-dark);
   font-family: var(--font-mono);
   font-size: 0.85rem;
   outline: none;
