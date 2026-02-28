@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { coursesAPI } from '../api';
 import toast, { Toaster } from 'react-hot-toast';
+import { navItems } from '../libs/constant'
+
 
 
 const empty = { course_code: '', title: '', description: '', credits: 3 };
@@ -60,7 +62,8 @@ export default function Courses() {
       {message && <Toaster toastOptions={{ duration: 3000, position: 'top-right' }} toast={message} />}
 
       <div className="table-card">
-        <div className="table-card-header"><h3>All Courses</h3>           <p>{courses.length} available course{courses.length !== 1 ? 's' : ''}</p>
+        <div className="table-card-header"><h3>All Courses</h3>          
+         <p>{courses.length} available course{courses.length !== 1 ? 's' : ''}</p>
  </div>
         {loading ? (
           <div className="loading"><div className="spinner" /> Loading...</div>
@@ -77,7 +80,7 @@ export default function Courses() {
             </thead>
             <tbody>
               {courses.length === 0 ? (
-                <tr><td colSpan="5"><div className="empty-state"><div className="icon">▣</div><p>No courses added yet</p></div></td></tr>
+                <tr><td colSpan="5"><div className="empty-state"><i className={`fa-solid fa-${navItems[3].icon}`}></i><p>No courses added yet</p></div></td></tr>
               ) : courses.map(c => (
                 <tr key={c.id}>
                   <td><span className="mono">{c.course_code}</span></td>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { resultsAPI, enrollmentsAPI } from '../api';
 import toast, { Toaster } from 'react-hot-toast';
-import { gradeColor } from '../libs/constant'
+import { gradeColor, navItems } from '../libs/constant'
+
 
 
 
@@ -9,11 +10,11 @@ import { gradeColor } from '../libs/constant'
 export default function Results() {
   const [results, setResults]         = useState([]);
   const [enrollments, setEnrollments] = useState([]);
-  const [loading, setLoading]         = useState(true);
-  const [modal, setModal]             = useState(false);
-  const [form, setForm]               = useState({ enrollment: '', marks: '' });
-  const [error, setError]             = useState('');
-  const [message, setMessage]         = useState('');
+  const [loading, setLoading]   = useState(true);
+  const [modal, setModal] = useState(false);
+  const [form, setForm]    = useState({ enrollment: '', marks: '' });
+  const [error, setError]   = useState('');
+  const [message, setMessage]   = useState('');
 
   const [usedEnrollments, setUsedEnrollments] = useState(new Set());
 
@@ -86,7 +87,7 @@ export default function Results() {
             </thead>
             <tbody>
               {results.length === 0 ? (
-                <tr><td colSpan="6"><div className="empty-state"><div className="icon">◆</div><p>No results recorded yet</p></div></td></tr>
+                <tr><td colSpan="6"><div className="empty-state"><i className={`fa-solid fa-${navItems[5].icon}`}></i><p>No results recorded yet</p></div></td></tr>
               ) : results.map((r, i) => (
                 <tr key={r.id}>
                   <td><span className="mono">{i + 1}</span></td>

@@ -93,7 +93,7 @@ export default function Students() {
             </thead>
             <tbody>
               {filtered.length === 0 ? (
-                <tr><td colSpan="5"><div className="empty-state"><div className="icon">◉</div><p>No students found</p></div></td></tr>
+                <tr><td colSpan="5"><div className="empty-state"><i className={`fa-solid fa-${navItems[2].icon}`}></i><p>No students found</p></div></td></tr>
               ) : filtered.map(s => (
                 <tr key={s.id}>
                   <td><span className="mono">{s.student_id}</span></td>

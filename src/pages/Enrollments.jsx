@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { enrollmentsAPI, studentsAPI, coursesAPI } from '../api';
 import toast, { Toaster } from 'react-hot-toast';
+import { navItems } from '../libs/constant'
 
 
 export default function Enrollments() {
@@ -75,7 +76,7 @@ export default function Enrollments() {
             </thead>
             <tbody>
               {enrollments.length === 0 ? (
-                <tr><td colSpan="4"><div className="empty-state"><div className="icon">◎</div><p>No enrollments yet</p></div></td></tr>
+                <tr><td colSpan="4"><div className="empty-state"><i className={`fa-solid fa-${navItems[4].icon}`}></i><p>No enrollments yet</p></div></td></tr>
               ) : enrollments.map((e, i) => (
                 <tr key={e.id}>
                   <td><span className="mono">{i + 1}</span></td>
